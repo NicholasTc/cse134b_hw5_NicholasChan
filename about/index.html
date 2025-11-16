@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="auto">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>About — Nicholas Theodorus Chan</title>
-    <meta name="description" content="About Nicholas: background, skills, values, and timeline — built with standards-based CSS and responsive images." />
+    <meta
+      name="description"
+      content="About Nicholas: background, skills, values, and timeline — built with standards-based CSS and responsive images."
+    />
 
     <!-- Fonts (shared) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@400..700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Shared stylesheet -->
     <link rel="stylesheet" href="/styles.css" />
@@ -25,27 +31,50 @@
         </div>
 
         <nav class="links" aria-label="Primary">
-          <a href="/index.html">Home</a>
-          <a href="/projects/index.html">Projects</a>
-          <a href="/about/index.html">About</a>
-          <a href="/contact/index.html">Contact</a>
+          <a href="/index.html" data-nav-transition>Home</a>
+          <a href="/projects/index.html" data-nav-transition>Projects</a>
+          <a href="/about/index.html" data-nav-transition>About</a>
+          <a href="/contact/index.html" data-nav-transition>Contact</a>
           <!-- required links surfaced on page 1 -->
-          <a id="repo" href="https://github.com/NicholasTc/cse134b-portfolio-nicholas-chan/tree/main" aria-label="GitHub repository">Repo</a>
+          <a
+            id="repo"
+            href="https://github.com/NicholasTc/cse134b-portfolio-nicholas-chan/tree/main"
+            aria-label="GitHub repository"
+            >Repo</a
+          >
+          <button
+            type="button"
+            class="theme-toggle"
+            data-theme-toggle
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+            <span class="theme-toggle-label" data-theme-label>Dark</span>
+            <span class="sr-only">Toggle site theme</span>
+          </button>
         </nav>
       </div>
     </header>
+    <noscript>
+      <p class="no-js-note">Theme toggle requires JavaScript to run.</p>
+    </noscript>
 
     <main class="wrap">
       <!-- ================== Hero ================== -->
       <section class="hero" aria-label="Intro">
         <h1>Hi, I’m Nicholas.</h1>
         <p class="lead">
-          Senior CS @ UCSD who ships clean, testable products. I build fast interfaces,
-          solid backends, and sweat the tiny UX details that make apps feel “done”.
+          Senior CS @ UCSD who ships clean, testable products. I build fast
+          interfaces, solid backends, and sweat the tiny UX details that make
+          apps feel “done”.
         </p>
         <div class="cta">
-          <a class="btn primary" href="/Nicholas-Chan-Resume.pdf">Download Résumé<span class="shine"></span></a>
-          <a class="btn" href="mailto:nicholastc14@gmail.com">Email Me<span class="shine"></span></a>
+          <a class="btn primary" href="/Nicholas-Chan-Resume.pdf"
+            >Download Résumé<span class="shine"></span
+          ></a>
+          <a class="btn" href="mailto:nicholastc14@gmail.com"
+            >Email Me<span class="shine"></span
+          ></a>
         </div>
       </section>
 
@@ -59,34 +88,47 @@
               type="image/webp"
               srcset="
                 https://picsum.photos/960/1200.webp?random=451 960w,
-                https://picsum.photos/640/800.webp?random=451 640w
-              " />
+                https://picsum.photos/640/800.webp?random=451  640w
+              "
+            />
             <img
               src="https://picsum.photos/960/1200?random=451"
               alt=""
               width="960"
               height="1200"
-              loading="lazy" />
+              loading="lazy"
+            />
           </picture>
         </figure>
 
         <div class="bio-card">
           <h2 class="bio-title">Builder, teammate, and systems thinker.</h2>
           <p class="muted">
-            I’ve shipped AI résumé tools (Flask + React), built Spring Boot APIs with
-            low latency, and launched WordPress/Elementor widgets with accessible, clean CSS.
-            I work test-first, document decisions, and measure performance.
+            I’ve shipped AI résumé tools (Flask + React), built Spring Boot APIs
+            with low latency, and launched WordPress/Elementor widgets with
+            accessible, clean CSS. I work test-first, document decisions, and
+            measure performance.
           </p>
 
           <ul class="stats" aria-label="Selected results">
-            <li class="stat"><strong>99.2%</strong> uptime across student projects</li>
-            <li class="stat"><strong>−42%</strong> query time on a fitness app</li>
-            <li class="stat"><strong>3×</strong> faster delivery with better CI</li>
+            <li class="stat">
+              <strong>99.2%</strong> uptime across student projects
+            </li>
+            <li class="stat">
+              <strong>−42%</strong> query time on a fitness app
+            </li>
+            <li class="stat">
+              <strong>3×</strong> faster delivery with better CI
+            </li>
           </ul>
 
           <div class="bio-cta">
-            <a class="btn" href="/projects.html"><span class="shine"></span>See Projects</a>
-            <a class="btn primary" href="#skills"><span class="shine"></span>Jump to Skills</a>
+            <a class="btn" href="/projects.html"
+              ><span class="shine"></span>See Projects</a
+            >
+            <a class="btn primary" href="#skills"
+              ><span class="shine"></span>Jump to Skills</a
+            >
           </div>
         </div>
       </section>
@@ -108,33 +150,53 @@
         <div class="skills-grid">
           <article class="skill">
             <h3>Frontend</h3>
-            <p class="muted">React, JS/TS, HTML/CSS, a11y, performance, charts.</p>
+            <p class="muted">
+              React, JS/TS, HTML/CSS, a11y, performance, charts.
+            </p>
             <ul class="chips">
-              <li>React</li><li>TypeScript</li><li>ARIA</li><li>Chart.js</li>
+              <li>React</li>
+              <li>TypeScript</li>
+              <li>ARIA</li>
+              <li>Chart.js</li>
             </ul>
           </article>
 
           <article class="skill">
             <h3>Backend</h3>
-            <p class="muted">Flask, Spring Boot, Node/Express, auth, testing, CI.</p>
+            <p class="muted">
+              Flask, Spring Boot, Node/Express, auth, testing, CI.
+            </p>
             <ul class="chips">
-              <li>Flask</li><li>Spring Boot</li><li>Node</li><li>Pytest</li>
+              <li>Flask</li>
+              <li>Spring Boot</li>
+              <li>Node</li>
+              <li>Pytest</li>
             </ul>
           </article>
 
           <article class="skill">
             <h3>Data & Infra</h3>
-            <p class="muted">SQLite/MySQL, MongoDB, Docker, Cloudflare, caching.</p>
+            <p class="muted">
+              SQLite/MySQL, MongoDB, Docker, Cloudflare, caching.
+            </p>
             <ul class="chips">
-              <li>SQLite</li><li>MySQL</li><li>MongoDB</li><li>Docker</li>
+              <li>SQLite</li>
+              <li>MySQL</li>
+              <li>MongoDB</li>
+              <li>Docker</li>
             </ul>
           </article>
 
           <article class="skill">
             <h3>Platforms</h3>
-            <p class="muted">WordPress/Elementor widgets, API integrations, SEO.</p>
+            <p class="muted">
+              WordPress/Elementor widgets, API integrations, SEO.
+            </p>
             <ul class="chips">
-              <li>WordPress</li><li>Elementor</li><li>REST</li><li>SEO</li>
+              <li>WordPress</li>
+              <li>Elementor</li>
+              <li>REST</li>
+              <li>SEO</li>
             </ul>
           </article>
         </div>
@@ -148,21 +210,29 @@
             <div class="dot" aria-hidden="true"></div>
             <div class="card">
               <h3>2025 — Weather/AQI Widget</h3>
-              <p class="muted">WP/Elementor widget combining Google Pollen &amp; Air Quality with accessible charts.</p>
+              <p class="muted">
+                WP/Elementor widget combining Google Pollen &amp; Air Quality
+                with accessible charts.
+              </p>
             </div>
           </li>
           <li>
             <div class="dot" aria-hidden="true"></div>
             <div class="card">
               <h3>2024 — ResumeAI Tool</h3>
-              <p class="muted">Python + OpenAI PDF parsing with improved cross-format accuracy.</p>
+              <p class="muted">
+                Python + OpenAI PDF parsing with improved cross-format accuracy.
+              </p>
             </div>
           </li>
           <li>
             <div class="dot" aria-hidden="true"></div>
             <div class="card">
               <h3>2023 — GymApp</h3>
-              <p class="muted">Flask + React fitness tracker; −42% query time via indexing + caching.</p>
+              <p class="muted">
+                Flask + React fitness tracker; −42% query time via indexing +
+                caching.
+              </p>
             </div>
           </li>
         </ol>
@@ -182,7 +252,9 @@
           </li>
           <li class="val">
             <h3>Accessibility</h3>
-            <p class="muted">Keyboard-first, labeled controls, real contrast.</p>
+            <p class="muted">
+              Keyboard-first, labeled controls, real contrast.
+            </p>
           </li>
           <li class="val">
             <h3>Care</h3>
@@ -193,5 +265,6 @@
 
       <footer>© 2025 • Nicholas Theodorus Chan</footer>
     </main>
+    <script type="module" src="/assets/scripts/theme-transitions.js"></script>
   </body>
 </html>

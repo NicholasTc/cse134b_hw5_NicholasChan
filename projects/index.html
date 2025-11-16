@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="auto">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Projects — Firstname Lastname</title>
-    <meta name="description" content="Project gallery with responsive images, accessible cards, and a clean grid layout." />
+    <meta
+      name="description"
+      content="Project gallery with responsive images, accessible cards, and a clean grid layout."
+    />
     <!-- Fonts (shared with landing) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@400..700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Shared styles -->
     <link rel="stylesheet" href="/styles.css" />
   </head>
@@ -23,21 +29,42 @@
         </div>
 
         <nav class="links" aria-label="Primary">
-          <a href="/index.html">Home</a>
-          <a href="/projects/index.html">Projects</a>
-          <a href="/about/index.html">About</a>
-          <a href="/contact/index.html">Contact</a>
+          <a href="/index.html" data-nav-transition>Home</a>
+          <a href="/projects/index.html" data-nav-transition>Projects</a>
+          <a href="/about/index.html" data-nav-transition>About</a>
+          <a href="/contact/index.html" data-nav-transition>Contact</a>
           <!-- required links surfaced on page 1 -->
-          <a id="repo" href="https://github.com/NicholasTc/cse134b-portfolio-nicholas-chan/tree/main" aria-label="GitHub repository">Repo</a>
+          <a
+            id="repo"
+            href="https://github.com/NicholasTc/cse134b-portfolio-nicholas-chan/tree/main"
+            aria-label="GitHub repository"
+            >Repo</a
+          >
+          <button
+            type="button"
+            class="theme-toggle"
+            data-theme-toggle
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+            <span class="theme-toggle-label" data-theme-label>Dark</span>
+            <span class="sr-only">Toggle site theme</span>
+          </button>
         </nav>
       </div>
     </header>
+    <noscript>
+      <p class="no-js-note">Enable JavaScript to access the theme switcher.</p>
+    </noscript>
 
     <main class="wrap">
       <!-- ================== Hero ================== -->
       <section class="hero projects-hero" aria-label="Projects intro">
         <h1>Selected Work</h1>
-        <p class="lead">A focused gallery of shipped projects—each card lists stack, results, and a responsive preview image.</p>
+        <p class="lead">
+          A focused gallery of shipped projects—each card lists stack, results,
+          and a responsive preview image.
+        </p>
       </section>
 
       <!-- ================== Filters / Layout controls (presentational only) ================== -->
@@ -67,26 +94,41 @@
         <article class="proj" data-kind="backend web">
           <figure class="thumb" aria-hidden="true">
             <picture>
-              <source type="image/webp"
+              <source
+                type="image/webp"
                 srcset="
-                  https://picsum.photos/800/450.webp?random=201 800w,
+                  https://picsum.photos/800/450.webp?random=201   800w,
                   https://picsum.photos/1200/675.webp?random=201 1200w
-                " />
+                "
+              />
               <img
                 src="https://picsum.photos/800/450?random=201"
                 alt="Project thumbnail placeholder"
-                width="800" height="450" loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw" />
+                width="800"
+                height="450"
+                loading="lazy"
+                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
+              />
             </picture>
           </figure>
           <div class="body">
             <div class="title">GymApp — Flask + React</div>
             <div class="meta">
-              <span class="badge">Flask</span><span class="badge">React</span><span class="badge">Postgres</span>
+              <span class="badge">Flask</span><span class="badge">React</span
+              ><span class="badge">Postgres</span>
             </div>
-            <div class="impact muted">“−42% query time via indexed joins + caching.”</div>
+            <div class="impact muted">
+              “−42% query time via indexed joins + caching.”
+            </div>
             <div class="row">
-              <button class="quick" type="button" aria-disabled="true" title="Quick-view disabled (no JS)">Quick-view</button>
+              <button
+                class="quick"
+                type="button"
+                aria-disabled="true"
+                title="Quick-view disabled (no JS)"
+              >
+                Quick-view
+              </button>
               <div class="cta"><a class="btn" href="#">Case Study →</a></div>
             </div>
           </div>
@@ -96,26 +138,34 @@
         <article class="proj" data-kind="wordpress web">
           <figure class="thumb" aria-hidden="true">
             <picture>
-              <source type="image/webp"
+              <source
+                type="image/webp"
                 srcset="
-                  https://picsum.photos/800/450.webp?random=202 800w,
+                  https://picsum.photos/800/450.webp?random=202   800w,
                   https://picsum.photos/1200/675.webp?random=202 1200w
-                " />
+                "
+              />
               <img
                 src="https://picsum.photos/800/450?random=202"
                 alt="Project thumbnail placeholder"
-                width="800" height="450" loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw" />
+                width="800"
+                height="450"
+                loading="lazy"
+                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
+              />
             </picture>
           </figure>
           <div class="body">
             <div class="title">Pollen Atlas — WP Widget</div>
             <div class="meta">
-              <span class="badge">WordPress</span><span class="badge">APIs</span><span class="badge">Charts</span>
+              <span class="badge">WordPress</span><span class="badge">APIs</span
+              ><span class="badge">Charts</span>
             </div>
             <div class="impact muted">“+23% retention on city pages.”</div>
             <div class="row">
-              <button class="quick" type="button" aria-disabled="true">Quick-view</button>
+              <button class="quick" type="button" aria-disabled="true">
+                Quick-view
+              </button>
               <div class="cta"><a class="btn" href="#">Live</a></div>
             </div>
           </div>
@@ -125,26 +175,36 @@
         <article class="proj" data-kind="backend">
           <figure class="thumb" aria-hidden="true">
             <picture>
-              <source type="image/webp"
+              <source
+                type="image/webp"
                 srcset="
-                  https://picsum.photos/800/450.webp?random=203 800w,
+                  https://picsum.photos/800/450.webp?random=203   800w,
                   https://picsum.photos/1200/675.webp?random=203 1200w
-                " />
+                "
+              />
               <img
                 src="https://picsum.photos/800/450?random=203"
                 alt="Project thumbnail placeholder"
-                width="800" height="450" loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw" />
+                width="800"
+                height="450"
+                loading="lazy"
+                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
+              />
             </picture>
           </figure>
           <div class="body">
             <div class="title">ResumeAI Tool — OpenAI</div>
             <div class="meta">
-              <span class="badge">Python</span><span class="badge">OpenAI</span><span class="badge">PDF</span>
+              <span class="badge">Python</span><span class="badge">OpenAI</span
+              ><span class="badge">PDF</span>
             </div>
-            <div class="impact muted">“~85% parsing accuracy across formats.”</div>
+            <div class="impact muted">
+              “~85% parsing accuracy across formats.”
+            </div>
             <div class="row">
-              <button class="quick" type="button" aria-disabled="true">Quick-view</button>
+              <button class="quick" type="button" aria-disabled="true">
+                Quick-view
+              </button>
               <div class="cta"><a class="btn" href="#">Repository</a></div>
             </div>
           </div>
@@ -154,24 +214,36 @@
         <article class="proj" data-kind="web">
           <figure class="thumb" aria-hidden="true">
             <picture>
-              <source type="image/webp"
+              <source
+                type="image/webp"
                 srcset="
-                  https://picsum.photos/800/450.webp?random=204 800w,
+                  https://picsum.photos/800/450.webp?random=204   800w,
                   https://picsum.photos/1200/675.webp?random=204 1200w
-                " />
+                "
+              />
               <img
                 src="https://picsum.photos/800/450?random=204"
                 alt="Project thumbnail placeholder"
-                width="800" height="450" loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw" />
+                width="800"
+                height="450"
+                loading="lazy"
+                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
+              />
             </picture>
           </figure>
           <div class="body">
             <div class="title">Weather/AQI Widget</div>
-            <div class="meta"><span class="badge">JS</span><span class="badge">Accessibility</span></div>
-            <div class="impact muted">“ARIA-labeled charts; keyboard-navigable legends.”</div>
+            <div class="meta">
+              <span class="badge">JS</span
+              ><span class="badge">Accessibility</span>
+            </div>
+            <div class="impact muted">
+              “ARIA-labeled charts; keyboard-navigable legends.”
+            </div>
             <div class="row">
-              <button class="quick" type="button" aria-disabled="true">Quick-view</button>
+              <button class="quick" type="button" aria-disabled="true">
+                Quick-view
+              </button>
               <div class="cta"><a class="btn" href="#">Case Study →</a></div>
             </div>
           </div>
@@ -181,24 +253,33 @@
         <article class="proj" data-kind="web">
           <figure class="thumb" aria-hidden="true">
             <picture>
-              <source type="image/webp"
+              <source
+                type="image/webp"
                 srcset="
-                  https://picsum.photos/800/450.webp?random=205 800w,
+                  https://picsum.photos/800/450.webp?random=205   800w,
                   https://picsum.photos/1200/675.webp?random=205 1200w
-                " />
+                "
+              />
               <img
                 src="https://picsum.photos/800/450?random=205"
                 alt="Project thumbnail placeholder"
-                width="800" height="450" loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw" />
+                width="800"
+                height="450"
+                loading="lazy"
+                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
+              />
             </picture>
           </figure>
           <div class="body">
             <div class="title">Project Placeholder Title</div>
-            <div class="meta"><span class="badge">React</span><span class="badge">Node</span></div>
+            <div class="meta">
+              <span class="badge">React</span><span class="badge">Node</span>
+            </div>
             <div class="impact muted">“Text or decription Placeholder”</div>
             <div class="row">
-              <button class="quick" type="button" aria-disabled="true">Quick-view</button>
+              <button class="quick" type="button" aria-disabled="true">
+                Quick-view
+              </button>
               <div class="cta"><a class="btn" href="#">Notes</a></div>
             </div>
           </div>
@@ -208,16 +289,21 @@
         <article class="proj" data-kind="web">
           <figure class="thumb" aria-hidden="true">
             <picture>
-              <source type="image/webp"
+              <source
+                type="image/webp"
                 srcset="
-                  https://picsum.photos/800/450.webp?random=206 800w,
+                  https://picsum.photos/800/450.webp?random=206   800w,
                   https://picsum.photos/1200/675.webp?random=206 1200w
-                " />
+                "
+              />
               <img
                 src="https://picsum.photos/800/450?random=206"
                 alt="Project thumbnail placeholder"
-                width="800" height="450" loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw" />
+                width="800"
+                height="450"
+                loading="lazy"
+                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
+              />
             </picture>
           </figure>
           <div class="body">
@@ -227,7 +313,9 @@
             </div>
             <div class="impact muted">“Text or decription Placeholder”</div>
             <div class="row">
-              <button class="quick" type="button" aria-disabled="true">Quick-view</button>
+              <button class="quick" type="button" aria-disabled="true">
+                Quick-view
+              </button>
               <div class="cta"><a class="btn" href="#">Repo</a></div>
             </div>
           </div>
@@ -237,5 +325,6 @@
       <!--  Footer -->
       <footer>© 2025 • Nicholas Theodorus Chan</footer>
     </main>
+    <script type="module" src="/assets/scripts/theme-transitions.js"></script>
   </body>
 </html>

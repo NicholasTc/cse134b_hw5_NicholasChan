@@ -1,259 +1,358 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="auto">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nicholas Theodorus Chan — Portfolio (CSE134 HW 3)</title>
-  <meta name="description" content="Minimal portfolio preview with refined projects grid, filters, quick-view modal, and polished CTA buttons." />
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nicholas Theodorus Chan — Portfolio (CSE134 HW 3)</title>
+    <meta
+      name="description"
+      content="Minimal portfolio preview with refined projects grid, filters, quick-view modal, and polished CTA buttons."
+    />
 
-  <!-- Custom font (proof of import) + safe fallbacks -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@400..700&display=swap" rel="stylesheet" />
+    <!-- Custom font (proof of import) + safe fallbacks -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- External stylesheet -->
-  <link rel="stylesheet" href="/styles.css" />
-</head>
-<body>
-  <!-- ================== Nav ================== -->
-  <header class="nav">
-    <div class="wrap nav-inner">
-      <div class="brand">
-        <span class="brand-dot" aria-hidden="true"></span>
-        <span>Nicholas Theodorus Chan</span>
-      </div>
+    <!-- External stylesheet -->
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <!-- ================== Nav ================== -->
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <div class="brand">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span>Nicholas Theodorus Chan</span>
+        </div>
 
-      <nav class="links" aria-label="Primary">
-          <a href="/index.html">Home</a>
-          <a href="/projects/index.html">Projects</a>
-          <a href="/about/index.html">About</a>
-          <a href="/contact/index.html">Contact</a>
+        <nav class="links" aria-label="Primary">
+          <a href="/index.html" data-nav-transition>Home</a>
+          <a href="/projects/index.html" data-nav-transition>Projects</a>
+          <a href="/about/index.html" data-nav-transition>About</a>
+          <a href="/contact/index.html" data-nav-transition>Contact</a>
           <!-- required links surfaced on page 1 -->
-          <a id="repo" href="https://github.com/NicholasTc/cse134b-portfolio-nicholas-chan/tree/main" aria-label="GitHub repository">Repo</a>
+          <a
+            id="repo"
+            href="https://github.com/NicholasTc/cse134b-portfolio-nicholas-chan/tree/main"
+            aria-label="GitHub repository"
+            >Repo</a
+          >
+          <button
+            type="button"
+            class="theme-toggle"
+            data-theme-toggle
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+            <span class="theme-toggle-label" data-theme-label>Dark</span>
+            <span class="sr-only">Toggle site theme</span>
+          </button>
         </nav>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <!-- ================== Hero ================== -->
-    <section class="hero" aria-label="Intro">
-      <h1>Building clean, testable products that ship.</h1>
-      <p class="lead">Placeholder line for your value prop. Mention what you build, who it’s for, and the impact in one short sentence.</p>
-      <div class="cta">
-        <a class="btn primary" href="#projects">View Projects<span class="shine"></span></a>
-        <a class="btn" href="/resume/Nicholas-Chan-Resume.pdf">Download Résumé<span class="shine"></span></a>
       </div>
+    </header>
+    <noscript>
+      <p class="no-js-note">
+        Enable JavaScript to use the site-wide theme toggle.
+      </p>
+    </noscript>
 
-      <!-- Image now uses <picture> + srcset + object-fit -->
-      <div class="hero-media" aria-hidden="true">
-        <picture>
-          <source
-            type="image/webp"
-            srcset="
-              https://picsum.photos/1200/650.webp?random=100 1200w,
-              https://picsum.photos/1600/867.webp?random=100 1600w
-            "
-          />
-          <img
-            src="https://picsum.photos/1200/650?random=100"
-            alt="Project montage placeholder"
-            width="1200"
-            height="650"
-            loading="lazy"
-            sizes="(max-width: 900px) 100vw, 1200px"
-          />
-        </picture>
-      </div>
-    </section>
-
-    <!-- ================== Projects ================== -->
-    <section id="projects" aria-labelledby="projects-title">
-      <div class="projects-head">
-        <div>
-          <h2 id="projects-title">Highlighted Projects</h2>
-          <p class="muted">Impact first. Filter by stack and open quick-views without leaving.</p>
+    <main class="wrap">
+      <!-- ================== Hero ================== -->
+      <section class="hero" aria-label="Intro">
+        <h1>Building clean, testable products that ship.</h1>
+        <p class="lead">
+          Placeholder line for your value prop. Mention what you build, who it’s
+          for, and the impact in one short sentence.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#projects"
+            >View Projects<span class="shine"></span
+          ></a>
+          <a class="btn" href="/resume/Nicholas-Chan-Resume.pdf"
+            >Download Résumé<span class="shine"></span
+          ></a>
         </div>
 
-        <div class="controls">
-          <div class="filters" role="toolbar" aria-label="Project filters">
-            <button class="filter" data-filter="all" aria-pressed="true">All</button>
-            <button class="filter" data-filter="web" aria-pressed="false">Web</button>
-            <button class="filter" data-filter="backend" aria-pressed="false">Backend</button>
-            <button class="filter" data-filter="ml" aria-pressed="false">ML</button>
-            <button class="filter" data-filter="wordpress" aria-pressed="false">WordPress</button>
-          </div>
-
-          <div class="layout" role="toolbar" aria-label="Layout">
-            <button id="gridBtn" aria-pressed="true" title="Grid" type="button">▦</button>
-            <button id="listBtn" aria-pressed="false" title="List" type="button">≣</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Featured -->
-      <div class="featured" data-kind="web backend">
-        <div class="visual">
+        <!-- Image now uses <picture> + srcset + object-fit -->
+        <div class="hero-media" aria-hidden="true">
           <picture>
             <source
               type="image/webp"
               srcset="
-                https://picsum.photos/1000/700.webp?random=21 1000w,
-                https://picsum.photos/1400/980.webp?random=21 1400w
+                https://picsum.photos/1200/650.webp?random=100 1200w,
+                https://picsum.photos/1600/867.webp?random=100 1600w
               "
             />
             <img
-              src="https://picsum.photos/1000/700?random=21"
-              alt="Featured project preview"
-              width="1000"
-              height="700"
+              src="https://picsum.photos/1200/650?random=100"
+              alt="Project montage placeholder"
+              width="1200"
+              height="650"
               loading="lazy"
-              sizes="(max-width: 900px) 100vw, 55vw"
+              sizes="(max-width: 900px) 100vw, 1200px"
             />
           </picture>
         </div>
-        <div class="panel">
-          <h3>Pollen Atlas — Air &amp; Pollen Dashboards</h3>
-          <p class="muted">WordPress + Elementor widget merging Google Pollen &amp; Air Quality APIs. Serverless caching and accessible charts.</p>
-          <div class="kpis">
-            <div class="kpi">-38% <small>Time to first paint</small></div>
-            <div class="kpi">+18% <small>Session length</small></div>
-            <div class="kpi">99.8% <small>Widget success rate</small></div>
+      </section>
+
+      <!-- ================== Projects ================== -->
+      <section id="projects" aria-labelledby="projects-title">
+        <div class="projects-head">
+          <div>
+            <h2 id="projects-title">Highlighted Projects</h2>
+            <p class="muted">
+              Impact first. Filter by stack and open quick-views without
+              leaving.
+            </p>
           </div>
-          <div class="cta">
-            <a class="btn primary" href="#"><span class="shine"></span>Case Study →</a>
-            <a class="btn" href="#"><span class="shine"></span>Live Demo</a>
+
+          <div class="controls">
+            <div class="filters" role="toolbar" aria-label="Project filters">
+              <button class="filter" data-filter="all" aria-pressed="true">
+                All
+              </button>
+              <button class="filter" data-filter="web" aria-pressed="false">
+                Web
+              </button>
+              <button class="filter" data-filter="backend" aria-pressed="false">
+                Backend
+              </button>
+              <button class="filter" data-filter="ml" aria-pressed="false">
+                ML
+              </button>
+              <button
+                class="filter"
+                data-filter="wordpress"
+                aria-pressed="false"
+              >
+                WordPress
+              </button>
+            </div>
+
+            <div class="layout" role="toolbar" aria-label="Layout">
+              <button
+                id="gridBtn"
+                aria-pressed="true"
+                title="Grid"
+                type="button"
+              >
+                ▦
+              </button>
+              <button
+                id="listBtn"
+                aria-pressed="false"
+                title="List"
+                type="button"
+              >
+                ≣
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Grid -->
-      <div class="proj-grid" id="projGrid">
-        <article class="proj" data-kind="backend web">
-          <figure class="thumb">
+        <!-- Featured -->
+        <div class="featured" data-kind="web backend">
+          <div class="visual">
             <picture>
               <source
                 type="image/webp"
                 srcset="
-                  https://picsum.photos/800/450.webp?random=31 800w,
-                  https://picsum.photos/1200/675.webp?random=31 1200w
+                  https://picsum.photos/1000/700.webp?random=21 1000w,
+                  https://picsum.photos/1400/980.webp?random=21 1400w
                 "
               />
               <img
-                src="https://picsum.photos/800/450?random=31"
-                alt="GymApp screenshot"
-                width="800"
-                height="450"
+                src="https://picsum.photos/1000/700?random=21"
+                alt="Featured project preview"
+                width="1000"
+                height="700"
                 loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
+                sizes="(max-width: 900px) 100vw, 55vw"
               />
             </picture>
-          </figure>
-          <div class="body">
-            <div class="title">GymApp — Flask + React</div>
-            <div class="meta">
-              <span class="badge">Flask</span><span class="badge">React</span><span class="badge">SQL</span>
+          </div>
+          <div class="panel">
+            <h3>Pollen Atlas — Air &amp; Pollen Dashboards</h3>
+            <p class="muted">
+              WordPress + Elementor widget merging Google Pollen &amp; Air
+              Quality APIs. Serverless caching and accessible charts.
+            </p>
+            <div class="kpis">
+              <div class="kpi">-38% <small>Time to first paint</small></div>
+              <div class="kpi">+18% <small>Session length</small></div>
+              <div class="kpi">99.8% <small>Widget success rate</small></div>
             </div>
-            <div class="impact muted">“-42% query time; added progress predictions.”</div>
-            <div class="row">
-              <button class="quick" type="button" aria-disabled="true">Quick-view</button>
-              <div class="cta"><a class="btn" href="#">Repo</a></div>
+            <div class="cta">
+              <a class="btn primary" href="#"
+                ><span class="shine"></span>Case Study →</a
+              >
+              <a class="btn" href="#"><span class="shine"></span>Live Demo</a>
             </div>
           </div>
-        </article>
+        </div>
 
-        <article class="proj" data-kind="wordpress web">
-          <figure class="thumb">
-            <picture>
-              <source
-                type="image/webp"
-                srcset="
-                  https://picsum.photos/800/450.webp?random=32 800w,
-                  https://picsum.photos/1200/675.webp?random=32 1200w
-                "
-              />
-              <img
-                src="https://picsum.photos/800/450?random=32"
-                alt="Pollen Atlas widget preview"
-                width="800"
-                height="450"
-                loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
-              />
-            </picture>
-          </figure>
-          <div class="body">
-            <div class="title">Pollen Atlas — WP Widget</div>
-            <div class="meta">
-              <span class="badge">WordPress</span><span class="badge">APIs</span><span class="badge">Charts</span>
+        <!-- Grid -->
+        <div class="proj-grid" id="projGrid">
+          <article class="proj" data-kind="backend web">
+            <figure class="thumb">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="
+                    https://picsum.photos/800/450.webp?random=31   800w,
+                    https://picsum.photos/1200/675.webp?random=31 1200w
+                  "
+                />
+                <img
+                  src="https://picsum.photos/800/450?random=31"
+                  alt="GymApp screenshot"
+                  width="800"
+                  height="450"
+                  loading="lazy"
+                  sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
+                />
+              </picture>
+            </figure>
+            <div class="body">
+              <div class="title">GymApp — Flask + React</div>
+              <div class="meta">
+                <span class="badge">Flask</span><span class="badge">React</span
+                ><span class="badge">SQL</span>
+              </div>
+              <div class="impact muted">
+                “-42% query time; added progress predictions.”
+              </div>
+              <div class="row">
+                <button class="quick" type="button" aria-disabled="true">
+                  Quick-view
+                </button>
+                <div class="cta"><a class="btn" href="#">Repo</a></div>
+              </div>
             </div>
-            <div class="impact muted">“+23% retention on city pages.”</div>
-            <div class="row">
-              <button class="quick" type="button" aria-disabled="true">Quick-view</button>
-              <div class="cta"><a class="btn" href="#">Live</a></div>
+          </article>
+
+          <article class="proj" data-kind="wordpress web">
+            <figure class="thumb">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="
+                    https://picsum.photos/800/450.webp?random=32   800w,
+                    https://picsum.photos/1200/675.webp?random=32 1200w
+                  "
+                />
+                <img
+                  src="https://picsum.photos/800/450?random=32"
+                  alt="Pollen Atlas widget preview"
+                  width="800"
+                  height="450"
+                  loading="lazy"
+                  sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
+                />
+              </picture>
+            </figure>
+            <div class="body">
+              <div class="title">Pollen Atlas — WP Widget</div>
+              <div class="meta">
+                <span class="badge">WordPress</span
+                ><span class="badge">APIs</span
+                ><span class="badge">Charts</span>
+              </div>
+              <div class="impact muted">“+23% retention on city pages.”</div>
+              <div class="row">
+                <button class="quick" type="button" aria-disabled="true">
+                  Quick-view
+                </button>
+                <div class="cta"><a class="btn" href="#">Live</a></div>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="proj" data-kind="backend">
-          <figure class="thumb">
-            <picture>
-              <source
-                type="image/webp"
-                srcset="
-                  https://picsum.photos/800/450.webp?random=33 800w,
-                  https://picsum.photos/1200/675.webp?random=33 1200w
-                "
-              />
-              <img
-                src="https://picsum.photos/800/450?random=33"
-                alt="Packing Slip Generation preview"
-                width="800"
-                height="450"
-                loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
-              />
-            </picture>
-          </figure>
-          <div class="body">
-            <div class="title">Packing Slip Gen — Spring Boot</div>
-            <div class="meta">
-              <span class="badge">Spring Boot</span><span class="badge">MySQL</span><span class="badge">Docker</span>
+          <article class="proj" data-kind="backend">
+            <figure class="thumb">
+              <picture>
+                <source
+                  type="image/webp"
+                  srcset="
+                    https://picsum.photos/800/450.webp?random=33   800w,
+                    https://picsum.photos/1200/675.webp?random=33 1200w
+                  "
+                />
+                <img
+                  src="https://picsum.photos/800/450?random=33"
+                  alt="Packing Slip Generation preview"
+                  width="800"
+                  height="450"
+                  loading="lazy"
+                  sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
+                />
+              </picture>
+            </figure>
+            <div class="body">
+              <div class="title">Packing Slip Gen — Spring Boot</div>
+              <div class="meta">
+                <span class="badge">Spring Boot</span
+                ><span class="badge">MySQL</span
+                ><span class="badge">Docker</span>
+              </div>
+              <div class="impact muted">
+                “99.2% endpoint success; PDF batch export.”
+              </div>
+              <div class="row">
+                <button class="quick" type="button" aria-disabled="true">
+                  Quick-view
+                </button>
+                <div class="cta"><a class="btn" href="#">Case Study →</a></div>
+              </div>
             </div>
-            <div class="impact muted">“99.2% endpoint success; PDF batch export.”</div>
-            <div class="row">
-              <button class="quick" type="button" aria-disabled="true">Quick-view</button>
-              <div class="cta"><a class="btn" href="#">Case Study →</a></div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+          </article>
+        </div>
+      </section>
 
-    <!-- ================== About ================== -->
-    <section id="about" class="about" aria-labelledby="about-title">
-      <h2 id="about-title">About</h2>
-      <p class="muted">
-        I am a senior CS student at UCSD with internship experience building fast, reliable web apps end-to-end. 
-        I've shipped AI résumé tools (Flask + React + MongoDB), built Spring Boot REST APIs with solid validation and low latency, 
-        and launched production sites with WordPress/Elementor, JavaScript, and Cloudflare, cutting up load times and errors while collaborating in small teams. 
-        I work test-first, write clear docs, and care about clean, practical interfaces. I'm eager to learn, open to feedback, and excited to grow into an SWE/SDE role while exploring scalable backends, 
-        workflow automation, and data-aware UX for real users.
-      </p>
-      <p class="muted"><strong>Skills:</strong> Frontend (React/JS/HTML/CSS) · Backend (Flask, Spring Boot) · Data/Infra (MySQL, Docker) · Tools (Git, CI, Linux)</p>
-    </section>
+      <!-- ================== About ================== -->
+      <section id="about" class="about" aria-labelledby="about-title">
+        <h2 id="about-title">About</h2>
+        <p class="muted">
+          I am a senior CS student at UCSD with internship experience building
+          fast, reliable web apps end-to-end. I've shipped AI résumé tools
+          (Flask + React + MongoDB), built Spring Boot REST APIs with solid
+          validation and low latency, and launched production sites with
+          WordPress/Elementor, JavaScript, and Cloudflare, cutting up load times
+          and errors while collaborating in small teams. I work test-first,
+          write clear docs, and care about clean, practical interfaces. I'm
+          eager to learn, open to feedback, and excited to grow into an SWE/SDE
+          role while exploring scalable backends, workflow automation, and
+          data-aware UX for real users.
+        </p>
+        <p class="muted">
+          <strong>Skills:</strong> Frontend (React/JS/HTML/CSS) · Backend
+          (Flask, Spring Boot) · Data/Infra (MySQL, Docker) · Tools (Git, CI,
+          Linux)
+        </p>
+      </section>
 
-    <!-- ================== Contact & Footer ================== -->
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <p class="muted">Email me at <a class="link" href="mailto:email@example.com">nicholastc14@gmail.com</a>. Based in San Diego, CA.</p>
-    </section>
+      <!-- ================== Contact & Footer ================== -->
+      <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p class="muted">
+          Email me at
+          <a class="link" href="mailto:email@example.com"
+            >nicholastc14@gmail.com</a
+          >. Based in San Diego, CA.
+        </p>
+      </section>
 
-    <footer>© 2025 • Nicholas Theodorus Chan</footer>
-  </main>
+      <footer>© 2025 • Nicholas Theodorus Chan</footer>
+    </main>
 
-  <!-- ================== Quick-View Modals (present but inactive — no JS in HW3) ================== -->
-  <dialog id="m1" class="modal" hidden></dialog>
-  <dialog id="m2" class="modal" hidden></dialog>
-  <dialog id="m3" class="modal" hidden></dialog>
-</body>
+    <!-- ================== Quick-View Modals (present but inactive — no JS in HW3) ================== -->
+    <dialog id="m1" class="modal" hidden></dialog>
+    <dialog id="m2" class="modal" hidden></dialog>
+    <dialog id="m3" class="modal" hidden></dialog>
+    <script type="module" src="/assets/scripts/theme-transitions.js"></script>
+  </body>
 </html>

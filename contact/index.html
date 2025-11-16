@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="auto">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contact — Nicholas Theodorus Chan</title>
-    <meta name="description" content="Get in touch with Nicholas — email, links, and a clean accessible contact form." />
+    <meta
+      name="description"
+      content="Get in touch with Nicholas — email, links, and a clean accessible contact form."
+    />
 
     <!-- Fonts (same as landing) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@400..700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Shared stylesheet -->
     <link rel="stylesheet" href="/styles.css" />
@@ -24,21 +30,44 @@
         </div>
 
         <nav class="links" aria-label="Primary">
-          <a href="/index.html">Home</a>
-          <a href="/projects/index.html">Projects</a>
-          <a href="/about/index.html">About</a>
-          <a href="/contact/index.html">Contact</a>
+          <a href="/index.html" data-nav-transition>Home</a>
+          <a href="/projects/index.html" data-nav-transition>Projects</a>
+          <a href="/about/index.html" data-nav-transition>About</a>
+          <a href="/contact/index.html" data-nav-transition>Contact</a>
           <!-- required links surfaced on page 1 -->
-          <a id="repo" href="https://github.com/NicholasTc/cse134b-portfolio-nicholas-chan/tree/main" aria-label="GitHub repository">Repo</a>
+          <a
+            id="repo"
+            href="https://github.com/NicholasTc/cse134b-portfolio-nicholas-chan/tree/main"
+            aria-label="GitHub repository"
+            >Repo</a
+          >
+          <button
+            type="button"
+            class="theme-toggle"
+            data-theme-toggle
+            aria-pressed="false"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+            <span class="theme-toggle-label" data-theme-label>Dark</span>
+            <span class="sr-only">Toggle site theme</span>
+          </button>
         </nav>
       </div>
     </header>
+    <noscript>
+      <p class="no-js-note">
+        JavaScript is required to switch between light and dark themes.
+      </p>
+    </noscript>
 
     <main class="wrap contact-main">
       <!-- ================== Hero ================== -->
       <section class="hero contact-hero" aria-label="Intro">
         <h1>Let’s build something useful.</h1>
-        <p class="lead">Email works best. I usually reply within 1–2 days with clear next steps.</p>
+        <p class="lead">
+          Email works best. I usually reply within 1–2 days with clear next
+          steps.
+        </p>
 
         <div class="hero-media" aria-hidden="true">
           <picture>
@@ -47,12 +76,16 @@
               srcset="
                 https://picsum.photos/1200/650.webp?random=77 1200w,
                 https://picsum.photos/1600/867.webp?random=77 1600w
-              " />
+              "
+            />
             <img
               src="https://picsum.photos/1200/650?random=77"
               alt=""
-              width="1200" height="650" loading="lazy"
-              sizes="(max-width: 900px) 100vw, 1200px" />
+              width="1200"
+              height="650"
+              loading="lazy"
+              sizes="(max-width: 900px) 100vw, 1200px"
+            />
           </picture>
         </div>
       </section>
@@ -65,15 +98,29 @@
           <ul class="contact-list">
             <li>
               <span class="label">Email</span>
-              <a class="link" href="mailto:nicholastc14@gmail.com">nicholastc14@gmail.com</a>
+              <a class="link" href="mailto:nicholastc14@gmail.com"
+                >nicholastc14@gmail.com</a
+              >
             </li>
             <li>
               <span class="label">GitHub</span>
-              <a class="link" href="https://github.com/NicholasTc" target="_blank" rel="noopener">NicholasTc</a>
+              <a
+                class="link"
+                href="https://github.com/NicholasTc"
+                target="_blank"
+                rel="noopener"
+                >NicholasTc</a
+              >
             </li>
             <li>
               <span class="label">LinkedIn</span>
-              <a class="link" href="https://www.linkedin.com/in/nictc/" target="_blank" rel="noopener">nictc</a>
+              <a
+                class="link"
+                href="https://www.linkedin.com/in/nictc/"
+                target="_blank"
+                rel="noopener"
+                >nictc</a
+              >
             </li>
             <li>
               <span class="label">Based</span>
@@ -87,7 +134,8 @@
               <iframe
                 title="Mini preview"
                 srcdoc="<!doctype html><html><body style='margin:0;font:14px system-ui;color:#222'><p style='padding:10px'>Hello from <b>iframe</b>.</p></body></html>"
-                loading="lazy"></iframe>
+                loading="lazy"
+              ></iframe>
             </div>
           </div>
         </aside>
@@ -100,36 +148,73 @@
               <legend class="sr-only">Your details</legend>
 
               <div class="field">
-                <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
-                <input id="name" name="name" type="text" autocomplete="name" required placeholder="Your name" />
+                <label for="name"
+                  >Name <span class="req" aria-hidden="true">*</span></label
+                >
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  required
+                  placeholder="Your name"
+                />
                 <p class="hint" id="name-hint">Required.</p>
               </div>
 
               <div class="field">
-                <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
-                <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+                <label for="email"
+                  >Email <span class="req" aria-hidden="true">*</span></label
+                >
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                  placeholder="you@example.com"
+                />
                 <p class="hint" id="email-hint">I’ll only use this to reply.</p>
               </div>
 
               <div class="field">
                 <label for="subject">Subject</label>
-                <input id="subject" name="subject" type="text" placeholder="What’s this about?" />
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  placeholder="What’s this about?"
+                />
               </div>
 
               <div class="field">
-                <label for="message">Message <span class="req" aria-hidden="true">*</span></label>
-                <textarea id="message" name="message" rows="6" required placeholder="How can I help?"></textarea>
+                <label for="message"
+                  >Message <span class="req" aria-hidden="true">*</span></label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  required
+                  placeholder="How can I help?"
+                ></textarea>
               </div>
 
               <div class="consent">
                 <input id="ok" name="ok" type="checkbox" />
-                <label for="ok">You can email me back about this inquiry.</label>
+                <label for="ok"
+                  >You can email me back about this inquiry.</label
+                >
               </div>
             </fieldset>
 
             <div class="form-actions">
-              <button class="btn primary" type="submit"><span class="shine"></span>Submit</button>
-              <button class="btn" type="reset"><span class="shine"></span>Reset</button>
+              <button class="btn primary" type="submit">
+                <span class="shine"></span>Submit
+              </button>
+              <button class="btn" type="reset">
+                <span class="shine"></span>Reset
+              </button>
             </div>
 
             <!-- Present but static to satisfy “no JS” -->
@@ -142,5 +227,6 @@
 
       <footer>© 2025 • Nicholas Theodorus Chan</footer>
     </main>
+    <script type="module" src="/assets/scripts/theme-transitions.js"></script>
   </body>
 </html>
