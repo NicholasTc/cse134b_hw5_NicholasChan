@@ -37,20 +37,109 @@
           <!-- required links surfaced on page 1 -->
           <a
             id="repo"
-            href="https://github.com/NicholasTc/cse134b-portfolio-nicholas-chan/tree/main"
+            href="https://github.com/NicholasTc/cse134b_hw4_NicholasChan.git"
             aria-label="GitHub repository"
             >Repo</a
           >
-          <button
-            type="button"
-            class="theme-toggle"
-            data-theme-toggle
-            aria-pressed="false"
-          >
-            <span class="theme-toggle-icon" aria-hidden="true"></span>
-            <span class="theme-toggle-label" data-theme-label>Dark</span>
-            <span class="sr-only">Toggle site theme</span>
-          </button>
+          <div class="theme-picker" data-theme-picker>
+            <button
+              type="button"
+              class="theme-trigger"
+              data-theme-trigger
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              <span class="theme-trigger-label" data-theme-label>Dark</span>
+              <span class="theme-trigger-caret" aria-hidden="true">▾</span>
+              <span class="sr-only">Open theme picker</span>
+            </button>
+            <div
+              class="theme-panel"
+              role="dialog"
+              aria-label="Theme picker"
+              data-theme-panel
+              tabindex="-1"
+              hidden
+            >
+              <div class="theme-panel-head">
+                <p>Theme options</p>
+                <button
+                  type="button"
+                  class="theme-panel-close"
+                  data-theme-close
+                  aria-label="Close theme picker"
+                >
+                  ✕
+                </button>
+              </div>
+              <p class="theme-panel-subheading">Presets</p>
+              <div class="theme-options">
+                <button type="button" data-theme-option="dark">Dark</button>
+                <button type="button" data-theme-option="light">Light</button>
+                <button type="button" data-theme-option="midnight">
+                  Midnight
+                </button>
+                <button type="button" data-theme-option="sand">Sand</button>
+              </div>
+              <hr />
+              <button
+                type="button"
+                class="theme-custom-open"
+                data-theme-custom-open
+              >
+                Custom…
+              </button>
+              <form class="theme-custom-form" data-theme-custom-form hidden>
+                <label>
+                  <span>Background color</span>
+                  <input
+                    type="color"
+                    name="bg"
+                    value="#0b0f17"
+                    aria-label="Background color"
+                    required
+                  />
+                </label>
+                <label>
+                  <span>Text color</span>
+                  <input
+                    type="color"
+                    name="text"
+                    value="#e5e7eb"
+                    aria-label="Text color"
+                    required
+                  />
+                </label>
+                <label>
+                  <span>Accent color</span>
+                  <input
+                    type="color"
+                    name="accent"
+                    value="#60a5fa"
+                    aria-label="Accent color"
+                    required
+                  />
+                </label>
+                <label>
+                  <span>Font</span>
+                  <select name="font" aria-label="Font selection">
+                    <option value="inter">Inter / Space Grotesk</option>
+                    <option value="serif">Serif stack</option>
+                    <option value="mono">Monospace stack</option>
+                  </select>
+                </label>
+                <div class="theme-custom-actions">
+                  <button type="button" data-theme-custom-save>
+                    Save theme
+                  </button>
+                  <button type="button" data-theme-custom-cancel>Cancel</button>
+                </div>
+              </form>
+              <button type="button" class="theme-reset" data-theme-reset>
+                Reset to Dark
+              </button>
+            </div>
+          </div>
         </nav>
       </div>
     </header>

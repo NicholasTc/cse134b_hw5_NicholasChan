@@ -9,6 +9,8 @@ Note: for all of the content and placeholder, it does not accurately reflect my 
 - The toggle button lives in the main navigation on every page (top-right beside the links). It is hidden when JavaScript is unavailable; a `<noscript>` note appears instead.
 - Clicking the toggle switches between the default dark palette and the light palette by updating CSS custom properties. The current choice is saved in `localStorage` under the key `ntc-theme`, so refreshing or opening another page retains the same theme.
 - To demonstrate for the grader: open any page (e.g., `index.html`), click the toggle, refresh, and confirm the theme persists.
+- For extra credit, the picker includes preset palettes (Dark, Light, Midnight, Sand) plus a “Custom…” builder that lets you choose background, text, accent colors, and a font stack. The selection persists via `localStorage`, and the custom option injects CSS variables (`#custom-theme-vars`) so the whole site respects the chosen colors. Open the picker from the nav (caret button) to try it.
+- A dedicated “Reset to Dark” call-to-action inside the picker clears any custom palette and re-applies the baseline dark theme in one click.
 
 ### View Transition API (4.2)
 
