@@ -1439,6 +1439,320 @@ footer {
   }
 }
 
+/* ================== CRUD Page Styles (Part 3) ================== */
+.crud-main {
+  padding-bottom: 3rem;
+}
+
+.crud-hero {
+  padding-bottom: 1rem;
+}
+
+.crud-hero .link {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.crud-hero .link:hover {
+  color: var(--text);
+}
+
+.crud-section {
+  margin-top: 1.5rem;
+}
+
+.crud-card {
+  background: var(--surface);
+  border: 1px solid color-mix(in oklab, var(--line) 60%, transparent);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.crud-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+
+.crud-card--danger {
+  border-color: color-mix(in oklab, #ef4444 40%, transparent);
+}
+
+.crud-card--danger h2 {
+  color: #f87171;
+}
+
+/* Projects List */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.project-item {
+  display: grid;
+  grid-template-columns: 3rem 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: color-mix(in oklab, var(--surface) 80%, transparent);
+  border: 1px solid color-mix(in oklab, var(--line) 50%, transparent);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.project-item:hover,
+.project-item:focus {
+  border-color: color-mix(in oklab, var(--accent) 50%, transparent);
+  background: color-mix(in oklab, var(--accent) 8%, var(--surface));
+  outline: none;
+}
+
+.project-item-index {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  background: color-mix(in oklab, var(--line) 40%, transparent);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.project-item-title {
+  font-weight: 500;
+  color: var(--text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-item-tags {
+  font-size: 0.75rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.empty-list {
+  color: var(--muted);
+  text-align: center;
+  padding: 2rem;
+}
+
+.refresh-btn {
+  --pad-y: 0.5rem;
+  --pad-x: 1rem;
+  font-size: 0.875rem;
+}
+
+/* CRUD Forms */
+.crud-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.form-group .req {
+  color: #f87171;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 0.75rem 1rem;
+  background: color-mix(in oklab, var(--surface) 85%, transparent);
+  border: 1px solid color-mix(in oklab, var(--line) 70%, transparent);
+  border-radius: 10px;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: color-mix(in oklab, var(--accent) 60%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 20%, transparent);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.form-group .hint {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.btn-primary {
+  background: color-mix(in oklab, var(--accent) 25%, var(--surface));
+  border-color: color-mix(in oklab, var(--accent) 50%, transparent);
+  color: var(--text);
+}
+
+.btn-primary:hover {
+  background: color-mix(in oklab, var(--accent) 35%, var(--surface));
+  border-color: color-mix(in oklab, var(--accent) 70%, transparent);
+}
+
+.btn-danger {
+  background: color-mix(in oklab, #ef4444 20%, var(--surface));
+  border-color: color-mix(in oklab, #ef4444 50%, transparent);
+  color: #fca5a5;
+}
+
+.btn-danger:hover {
+  background: color-mix(in oklab, #ef4444 30%, var(--surface));
+  border-color: color-mix(in oklab, #ef4444 70%, transparent);
+  color: #fef2f2;
+}
+
+/* Form Status Messages */
+.form-status {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.form-status[hidden] {
+  display: none;
+}
+
+.form-status--success {
+  background: color-mix(in oklab, #22c55e 15%, transparent);
+  color: #4ade80;
+  border: 1px solid color-mix(in oklab, #22c55e 30%, transparent);
+}
+
+.form-status--error {
+  background: color-mix(in oklab, #ef4444 15%, transparent);
+  color: #f87171;
+  border: 1px solid color-mix(in oklab, #ef4444 30%, transparent);
+}
+
+.form-status--warning {
+  background: color-mix(in oklab, #f59e0b 15%, transparent);
+  color: #fbbf24;
+  border: 1px solid color-mix(in oklab, #f59e0b 30%, transparent);
+}
+
+/* Delete Preview */
+.delete-preview {
+  padding: 1rem;
+  background: color-mix(in oklab, #ef4444 10%, transparent);
+  border: 1px dashed color-mix(in oklab, #ef4444 40%, transparent);
+  border-radius: 10px;
+  margin: 0.5rem 0;
+}
+
+.delete-preview p {
+  margin: 0;
+}
+
+.delete-preview-title {
+  font-weight: 600;
+  color: #fca5a5;
+  margin-top: 0.25rem !important;
+}
+
+/* Example Data Section */
+.example-data {
+  background: color-mix(in oklab, var(--surface) 70%, transparent);
+  border: 1px solid color-mix(in oklab, var(--line) 50%, transparent);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.example-data dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+  margin: 0;
+}
+
+.example-data dt {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.example-data dd {
+  margin: 0;
+  color: var(--text);
+  word-break: break-word;
+}
+
+/* Responsive CRUD */
+@media (max-width: 620px) {
+  .crud-card {
+    padding: 1.25rem;
+  }
+
+  .project-item {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .project-item-index {
+    display: none;
+  }
+
+  .project-item-tags {
+    max-width: 100%;
+  }
+
+  .example-data dl {
+    grid-template-columns: 1fr;
+  }
+
+  .example-data dt {
+    margin-top: 0.5rem;
+  }
+}
+
 /* ================== Data Loading Controls (Part 2) ================== */
 .data-loaders {
   display: flex;

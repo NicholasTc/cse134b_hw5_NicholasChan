@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Manage Projects — CRUD Operations</title>
+    <meta
+      name="description"
+      content="Create, update, and delete projects using localStorage. Part 3 of HW5."
+    />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Space+Grotesk:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <!-- ================== Nav ================== -->
+    <header class="nav">
+      <div class="wrap nav-inner">
+        <div class="brand">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span>Nicholas Theodorus Chan</span>
+        </div>
+
+        <nav class="links" aria-label="Primary">
+          <a href="/index.html" data-nav-transition>Home</a>
+          <a href="/projects/index.html" data-nav-transition>Projects</a>
+          <a href="/about/index.html" data-nav-transition>About</a>
+          <a href="/contact/index.html" data-nav-transition>Contact</a>
+          <a
+            id="repo"
+            href="https://github.com/NicholasTc/cse134b_hw5_NicholasChan.git"
+            aria-label="GitHub repository"
+            >Repo</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="wrap crud-main">
+      <!-- ================== Hero ================== -->
+      <section class="hero crud-hero" aria-label="CRUD intro">
+        <h1>Manage Projects</h1>
+        <p class="lead">
+          Create, update, and delete projects stored in your browser's
+          localStorage. Changes will appear when you click "Load Local" on the
+          <a href="/projects/index.html" class="link">Projects page</a>.
+        </p>
+      </section>
+
+      <!-- ================== Current Projects List ================== -->
+      <section class="crud-section" aria-labelledby="current-projects-title">
+        <div class="crud-card">
+          <h2 id="current-projects-title">Current Projects (localStorage)</h2>
+          <p class="muted">Select a project to update or delete it.</p>
+
+          <div
+            id="projectsList"
+            class="projects-list"
+            role="listbox"
+            aria-label="Stored projects"
+          >
+            <!-- Projects will be dynamically loaded here -->
+            <p class="empty-list">Loading projects...</p>
+          </div>
+
+          <button type="button" id="refreshListBtn" class="btn refresh-btn">
+            ↻ Refresh List
+          </button>
+        </div>
+      </section>
+
+      <!-- ================== CREATE Form ================== -->
+      <section class="crud-section" aria-labelledby="create-title">
+        <div class="crud-card">
+          <h2 id="create-title">Create New Project</h2>
+          <p class="muted">
+            Add a new project to localStorage. All fields are required.
+          </p>
+
+          <form id="createForm" class="crud-form" novalidate>
+            <div class="form-group">
+              <label for="create-title-input"
+                >Project Title <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="create-title-input"
+                name="title"
+                placeholder="e.g., My Awesome Project"
+                required
+                minlength="3"
+                maxlength="100"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="create-image"
+                >Image URL <span class="req">*</span></label
+              >
+              <input
+                type="url"
+                id="create-image"
+                name="image"
+                placeholder="https://example.com/image.jpg"
+                required
+              />
+              <p class="hint">Direct URL to an image (JPG, PNG, WebP)</p>
+            </div>
+
+            <div class="form-group">
+              <label for="create-image-alt"
+                >Image Alt Text <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="create-image-alt"
+                name="imageAlt"
+                placeholder="Description of the image for accessibility"
+                required
+                minlength="10"
+                maxlength="200"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="create-description"
+                >Description <span class="req">*</span></label
+              >
+              <textarea
+                id="create-description"
+                name="description"
+                rows="3"
+                placeholder="Brief description of the project..."
+                required
+                minlength="20"
+                maxlength="500"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="create-tags">Tags <span class="req">*</span></label>
+              <input
+                type="text"
+                id="create-tags"
+                name="tags"
+                placeholder="React, Node.js, MongoDB"
+                required
+              />
+              <p class="hint">Comma-separated list of technologies</p>
+            </div>
+
+            <div class="form-group">
+              <label for="create-link"
+                >Project Link <span class="req">*</span></label
+              >
+              <input
+                type="url"
+                id="create-link"
+                name="link"
+                placeholder="https://github.com/username/project"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="create-link-text">Link Button Text</label>
+              <input
+                type="text"
+                id="create-link-text"
+                name="linkText"
+                placeholder="View Project →"
+                value="View Project →"
+                maxlength="30"
+              />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                Create Project
+              </button>
+              <button type="reset" class="btn">Clear Form</button>
+            </div>
+
+            <p
+              id="createStatus"
+              class="form-status"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- ================== UPDATE Form ================== -->
+      <section class="crud-section" aria-labelledby="update-title">
+        <div class="crud-card">
+          <h2 id="update-title">Update Existing Project</h2>
+          <p class="muted">
+            Select a project from the list above, modify the fields, then save.
+          </p>
+
+          <form id="updateForm" class="crud-form" novalidate>
+            <div class="form-group">
+              <label for="update-select"
+                >Select Project to Update <span class="req">*</span></label
+              >
+              <select id="update-select" name="projectId" required>
+                <option value="">-- Select a project --</option>
+                <!-- Options populated dynamically -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="update-title-input"
+                >Project Title <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="update-title-input"
+                name="title"
+                placeholder="Project title"
+                required
+                minlength="3"
+                maxlength="100"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="update-image"
+                >Image URL <span class="req">*</span></label
+              >
+              <input
+                type="url"
+                id="update-image"
+                name="image"
+                placeholder="https://example.com/image.jpg"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="update-image-alt"
+                >Image Alt Text <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="update-image-alt"
+                name="imageAlt"
+                placeholder="Description of the image"
+                required
+                minlength="10"
+                maxlength="200"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="update-description"
+                >Description <span class="req">*</span></label
+              >
+              <textarea
+                id="update-description"
+                name="description"
+                rows="3"
+                placeholder="Brief description..."
+                required
+                minlength="20"
+                maxlength="500"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="update-tags">Tags <span class="req">*</span></label>
+              <input
+                type="text"
+                id="update-tags"
+                name="tags"
+                placeholder="React, Node.js, MongoDB"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="update-link"
+                >Project Link <span class="req">*</span></label
+              >
+              <input
+                type="url"
+                id="update-link"
+                name="link"
+                placeholder="https://github.com/username/project"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="update-link-text">Link Button Text</label>
+              <input
+                type="text"
+                id="update-link-text"
+                name="linkText"
+                placeholder="View Project →"
+                maxlength="30"
+              />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                Save Changes
+              </button>
+              <button type="reset" class="btn">Reset</button>
+            </div>
+
+            <p
+              id="updateStatus"
+              class="form-status"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- ================== DELETE Section ================== -->
+      <section class="crud-section" aria-labelledby="delete-title">
+        <div class="crud-card crud-card--danger">
+          <h2 id="delete-title">Delete Project</h2>
+          <p class="muted">
+            Select a project to permanently remove it from localStorage.
+          </p>
+
+          <form id="deleteForm" class="crud-form">
+            <div class="form-group">
+              <label for="delete-select"
+                >Select Project to Delete <span class="req">*</span></label
+              >
+              <select id="delete-select" name="projectId" required>
+                <option value="">-- Select a project --</option>
+                <!-- Options populated dynamically -->
+              </select>
+            </div>
+
+            <div id="deletePreview" class="delete-preview" hidden>
+              <p><strong>You are about to delete:</strong></p>
+              <p id="deletePreviewTitle" class="delete-preview-title"></p>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-danger">
+                Delete Project
+              </button>
+            </div>
+
+            <p
+              id="deleteStatus"
+              class="form-status"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></p>
+          </form>
+        </div>
+      </section>
+
+      <!-- ================== Example Test Data ================== -->
+      <section class="crud-section" aria-labelledby="example-title">
+        <div class="crud-card">
+          <h2 id="example-title">Example Form Inputs (For Testing)</h2>
+          <p class="muted">Copy these values to test the Create form:</p>
+
+          <div class="example-data">
+            <dl>
+              <dt>Title:</dt>
+              <dd>Portfolio Website Redesign</dd>
+
+              <dt>Image URL:</dt>
+              <dd>https://picsum.photos/800/450?random=999</dd>
+
+              <dt>Image Alt:</dt>
+              <dd>
+                Modern portfolio website with dark theme and animated
+                transitions
+              </dd>
+
+              <dt>Description:</dt>
+              <dd>
+                A complete redesign of my personal portfolio using modern CSS
+                features including custom properties, grid layout, and view
+                transitions API.
+              </dd>
+
+              <dt>Tags:</dt>
+              <dd>HTML5, CSS3, JavaScript, Web Components</dd>
+
+              <dt>Link:</dt>
+              <dd>https://github.com/NicholasTc/portfolio</dd>
+
+              <dt>Link Text:</dt>
+              <dd>View on GitHub →</dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>© 2025 • Nicholas Theodorus Chan</footer>
+    </main>
+
+    <script type="module" src="/assets/scripts/project-crud.js"></script>
+    <script type="module" src="/assets/scripts/theme-transitions.js"></script>
+  </body>
+</html>

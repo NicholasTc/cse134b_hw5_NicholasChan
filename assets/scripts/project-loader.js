@@ -18,8 +18,10 @@ const LOCAL_STORAGE_KEY = "ntc-projects-data";
 
 // ============== Local Storage Data (Pre-populated) ==============
 // This data is slightly different from remote to demonstrate both sources work independently
+// Each project has a unique ID for CRUD operations
 const DEFAULT_LOCAL_PROJECTS = [
   {
+    id: "proj-001",
     title: "GymApp — Fitness Tracker",
     image: "https://picsum.photos/800/450?random=301",
     imageAlt: "GymApp mobile interface with workout tracking features",
@@ -30,6 +32,7 @@ const DEFAULT_LOCAL_PROJECTS = [
     linkText: "GitHub Repo →",
   },
   {
+    id: "proj-002",
     title: "Pollen & Air Quality Widget",
     image: "https://picsum.photos/800/450?random=302",
     imageAlt: "WordPress widget showing pollen and air quality metrics",
@@ -40,6 +43,7 @@ const DEFAULT_LOCAL_PROJECTS = [
     linkText: "Live Site →",
   },
   {
+    id: "proj-003",
     title: "AI Resume Parser",
     image: "https://picsum.photos/800/450?random=303",
     imageAlt: "Resume parsing tool with AI-powered extraction",
@@ -50,6 +54,7 @@ const DEFAULT_LOCAL_PROJECTS = [
     linkText: "View Code →",
   },
   {
+    id: "proj-004",
     title: "Accessible Weather Dashboard",
     image: "https://picsum.photos/800/450?random=304",
     imageAlt:
