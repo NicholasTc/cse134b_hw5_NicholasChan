@@ -86,6 +86,20 @@ let loadLocalBtn = null;
 let loadRemoteBtn = null;
 let statusMessage = null;
 
+// ============== Loading Spinner ==============
+/**
+ * Shows the loading spinner in the container
+ */
+function showLoadingSpinner() {
+  if (!projectsContainer) return;
+  projectsContainer.innerHTML = `
+    <div class="loading-spinner" role="status" aria-label="Loading projects">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Loading projects...</p>
+    </div>
+  `;
+}
+
 // ============== Render Projects ==============
 /**
  * Clears the container and renders project cards from data array
@@ -98,7 +112,7 @@ function renderProjects(projects, source) {
     return;
   }
 
-  // Clear existing cards
+  // Clear existing cards (including spinner)
   projectsContainer.innerHTML = "";
 
   if (!projects || projects.length === 0) {
@@ -107,7 +121,7 @@ function renderProjects(projects, source) {
     return;
   }
 
-  // Create project cards
+  // Create project cards with staggered animation
   projects.forEach((project, index) => {
     const card = document.createElement("project-card");
 
@@ -139,30 +153,34 @@ function renderProjects(projects, source) {
  */
 function loadFromLocal() {
   updateStatus("Loading from local storage...", "loading");
+  showLoadingSpinner();
 
-  try {
-    const data = localStorage.getItem(LOCAL_STORAGE_KEY);
+  // Small delay to show spinner (localStorage is instant, but we want visual feedback)
+  setTimeout(() => {
+    try {
+      const data = localStorage.getItem(LOCAL_STORAGE_KEY);
 
-    if (!data) {
-      updateStatus("No local data found. Initializing...", "warning");
-      initializeLocalStorage();
-      const newData = localStorage.getItem(LOCAL_STORAGE_KEY);
-      const projects = JSON.parse(newData);
+      if (!data) {
+        updateStatus("No local data found. Initializing...", "warning");
+        initializeLocalStorage();
+        const newData = localStorage.getItem(LOCAL_STORAGE_KEY);
+        const projects = JSON.parse(newData);
+        renderProjects(projects, "localStorage");
+        return;
+      }
+
+      const projects = JSON.parse(data);
+
+      if (!Array.isArray(projects)) {
+        throw new Error("Invalid data format in localStorage");
+      }
+
       renderProjects(projects, "localStorage");
-      return;
+    } catch (error) {
+      console.error("[Project Loader] Error loading from localStorage:", error);
+      updateStatus(`Error loading local data: ${error.message}`, "error");
     }
-
-    const projects = JSON.parse(data);
-
-    if (!Array.isArray(projects)) {
-      throw new Error("Invalid data format in localStorage");
-    }
-
-    renderProjects(projects, "localStorage");
-  } catch (error) {
-    console.error("[Project Loader] Error loading from localStorage:", error);
-    updateStatus(`Error loading local data: ${error.message}`, "error");
-  }
+  }, 300); // Brief delay for visual feedback
 }
 
 // ============== Load from JSONBin (Remote) ==============
@@ -171,6 +189,7 @@ function loadFromLocal() {
  */
 async function loadFromRemote() {
   updateStatus("Fetching from remote server...", "loading");
+  showLoadingSpinner();
 
   try {
     const response = await fetch(JSONBIN_API_URL, {
@@ -198,6 +217,11 @@ async function loadFromRemote() {
   } catch (error) {
     console.error("[Project Loader] Error loading from remote:", error);
     updateStatus(`Error loading remote data: ${error.message}`, "error");
+    // Clear spinner on error
+    if (projectsContainer) {
+      projectsContainer.innerHTML =
+        '<p class="no-projects">Failed to load projects. Please try again.</p>';
+    }
   }
 }
 
