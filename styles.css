@@ -1438,3 +1438,48 @@ footer {
     font-size: 1rem;
   }
 }
+
+/* ================== Project Card Grid (for <project-card> custom elements) ================== */
+.project-cards-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .project-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Ensure project-card elements fill their grid cells */
+.project-cards-grid project-card {
+  display: block;
+  height: 100%;
+}
+
+/* Loading state for dynamically loaded cards */
+.project-cards-grid.loading {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-cards-grid.loading::after {
+  content: "Loading projects...";
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* Empty state when no cards loaded */
+.project-cards-grid:empty::after {
+  content: "No projects to display.";
+  color: var(--muted);
+  font-size: 1rem;
+  text-align: center;
+  grid-column: 1 / -1;
+  padding: 3rem 1rem;
+}

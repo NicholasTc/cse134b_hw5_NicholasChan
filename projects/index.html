@@ -36,7 +36,7 @@
           <!-- required links surfaced on page 1 -->
           <a
             id="repo"
-            href="https://github.com/NicholasTc/cse134b_hw4_NicholasChan.git"
+            href="https://github.com/NicholasTc/cse134b_hw5_NicholasChan.git"
             aria-label="GitHub repository"
             >Repo</a
           >
@@ -175,245 +175,83 @@
         </div>
       </section>
 
-      <!-- ================== Projects Grid ================== -->
-      <section class="proj-grid" aria-labelledby="gallery-title">
+      <!-- ================== Projects Grid (using <project-card> custom elements) ================== -->
+      <section aria-labelledby="gallery-title">
         <h2 id="gallery-title" class="sr-only">Project gallery</h2>
 
-        <!-- Card 1 (placeholder image via Picsum) -->
-        <article class="proj" data-kind="backend web">
-          <figure class="thumb" aria-hidden="true">
-            <picture>
-              <source
-                type="image/webp"
-                srcset="
-                  https://picsum.photos/800/450.webp?random=201   800w,
-                  https://picsum.photos/1200/675.webp?random=201 1200w
-                "
-              />
-              <img
-                src="https://picsum.photos/800/450?random=201"
-                alt="Project thumbnail placeholder"
-                width="800"
-                height="450"
-                loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
-              />
-            </picture>
-          </figure>
-          <div class="body">
-            <div class="title">GymApp — Flask + React</div>
-            <div class="meta">
-              <span class="badge">Flask</span><span class="badge">React</span
-              ><span class="badge">Postgres</span>
-            </div>
-            <div class="impact muted">
-              “−42% query time via indexed joins + caching.”
-            </div>
-            <div class="row">
-              <button
-                class="quick"
-                type="button"
-                aria-disabled="true"
-                title="Quick-view disabled (no JS)"
-              >
-                Quick-view
-              </button>
-              <div class="cta"><a class="btn" href="#">Case Study →</a></div>
-            </div>
-          </div>
-        </article>
+        <div class="project-cards-grid" id="projectCardsContainer">
+          <!-- Card 1: GymApp -->
+          <project-card
+            title="GymApp — Full-Stack Fitness Tracker"
+            image="https://picsum.photos/800/450?random=201"
+            image-alt="GymApp dashboard showing workout tracking interface with progress charts"
+            description="A comprehensive fitness tracking application that reduced query times by 42% through indexed joins and intelligent caching. Features include workout logging, progress predictions, and personalized recommendations."
+            tags="Flask, React, PostgreSQL, REST API"
+            link="https://github.com/NicholasTc"
+            link-text="View Repository →"
+          ></project-card>
 
-        <!-- Card 2 -->
-        <article class="proj" data-kind="wordpress web">
-          <figure class="thumb" aria-hidden="true">
-            <picture>
-              <source
-                type="image/webp"
-                srcset="
-                  https://picsum.photos/800/450.webp?random=202   800w,
-                  https://picsum.photos/1200/675.webp?random=202 1200w
-                "
-              />
-              <img
-                src="https://picsum.photos/800/450?random=202"
-                alt="Project thumbnail placeholder"
-                width="800"
-                height="450"
-                loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
-              />
-            </picture>
-          </figure>
-          <div class="body">
-            <div class="title">Pollen Atlas — WP Widget</div>
-            <div class="meta">
-              <span class="badge">WordPress</span><span class="badge">APIs</span
-              ><span class="badge">Charts</span>
-            </div>
-            <div class="impact muted">“+23% retention on city pages.”</div>
-            <div class="row">
-              <button class="quick" type="button" aria-disabled="true">
-                Quick-view
-              </button>
-              <div class="cta"><a class="btn" href="#">Live</a></div>
-            </div>
-          </div>
-        </article>
+          <!-- Card 2: Pollen Atlas -->
+          <project-card
+            title="Pollen Atlas — Air Quality Dashboard"
+            image="https://picsum.photos/800/450?random=202"
+            image-alt="Pollen Atlas WordPress widget displaying real-time air quality and pollen data"
+            description="WordPress widget integrating Google Pollen and Air Quality APIs with serverless caching. Achieved +23% user retention on city pages through accessible, responsive charts."
+            tags="WordPress, JavaScript, APIs, Charts"
+            link="#"
+            link-text="View Live Demo →"
+          ></project-card>
 
-        <!-- Card 3 -->
-        <article class="proj" data-kind="backend">
-          <figure class="thumb" aria-hidden="true">
-            <picture>
-              <source
-                type="image/webp"
-                srcset="
-                  https://picsum.photos/800/450.webp?random=203   800w,
-                  https://picsum.photos/1200/675.webp?random=203 1200w
-                "
-              />
-              <img
-                src="https://picsum.photos/800/450?random=203"
-                alt="Project thumbnail placeholder"
-                width="800"
-                height="450"
-                loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
-              />
-            </picture>
-          </figure>
-          <div class="body">
-            <div class="title">ResumeAI Tool — OpenAI</div>
-            <div class="meta">
-              <span class="badge">Python</span><span class="badge">OpenAI</span
-              ><span class="badge">PDF</span>
-            </div>
-            <div class="impact muted">
-              “~85% parsing accuracy across formats.”
-            </div>
-            <div class="row">
-              <button class="quick" type="button" aria-disabled="true">
-                Quick-view
-              </button>
-              <div class="cta"><a class="btn" href="#">Repository</a></div>
-            </div>
-          </div>
-        </article>
+          <!-- Card 3: ResumeAI Tool -->
+          <project-card
+            title="ResumeAI — Intelligent Resume Parser"
+            image="https://picsum.photos/800/450?random=203"
+            image-alt="ResumeAI interface showing document upload and parsed resume data"
+            description="An AI-powered resume parsing tool achieving ~85% accuracy across various document formats. Leverages OpenAI for natural language processing and smart field extraction."
+            tags="Python, OpenAI, PDF Processing"
+            link="https://github.com/NicholasTc"
+            link-text="View Repository →"
+          ></project-card>
 
-        <!-- Card 4 -->
-        <article class="proj" data-kind="web">
-          <figure class="thumb" aria-hidden="true">
-            <picture>
-              <source
-                type="image/webp"
-                srcset="
-                  https://picsum.photos/800/450.webp?random=204   800w,
-                  https://picsum.photos/1200/675.webp?random=204 1200w
-                "
-              />
-              <img
-                src="https://picsum.photos/800/450?random=204"
-                alt="Project thumbnail placeholder"
-                width="800"
-                height="450"
-                loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
-              />
-            </picture>
-          </figure>
-          <div class="body">
-            <div class="title">Weather/AQI Widget</div>
-            <div class="meta">
-              <span class="badge">JS</span
-              ><span class="badge">Accessibility</span>
-            </div>
-            <div class="impact muted">
-              “ARIA-labeled charts; keyboard-navigable legends.”
-            </div>
-            <div class="row">
-              <button class="quick" type="button" aria-disabled="true">
-                Quick-view
-              </button>
-              <div class="cta"><a class="btn" href="#">Case Study →</a></div>
-            </div>
-          </div>
-        </article>
+          <!-- Card 4: Weather/AQI Widget -->
+          <project-card
+            title="Weather & AQI Widget"
+            image="https://picsum.photos/800/450?random=204"
+            image-alt="Accessible weather widget with ARIA-labeled charts and keyboard navigation"
+            description="A fully accessible weather and air quality widget featuring ARIA-labeled charts and keyboard-navigable legends. Built with a focus on WCAG 2.1 AA compliance."
+            tags="JavaScript, Accessibility, ARIA"
+            link="#"
+            link-text="Case Study →"
+          ></project-card>
 
-        <!-- Card 5 -->
-        <article class="proj" data-kind="web">
-          <figure class="thumb" aria-hidden="true">
-            <picture>
-              <source
-                type="image/webp"
-                srcset="
-                  https://picsum.photos/800/450.webp?random=205   800w,
-                  https://picsum.photos/1200/675.webp?random=205 1200w
-                "
-              />
-              <img
-                src="https://picsum.photos/800/450?random=205"
-                alt="Project thumbnail placeholder"
-                width="800"
-                height="450"
-                loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
-              />
-            </picture>
-          </figure>
-          <div class="body">
-            <div class="title">Project Placeholder Title</div>
-            <div class="meta">
-              <span class="badge">React</span><span class="badge">Node</span>
-            </div>
-            <div class="impact muted">“Text or decription Placeholder”</div>
-            <div class="row">
-              <button class="quick" type="button" aria-disabled="true">
-                Quick-view
-              </button>
-              <div class="cta"><a class="btn" href="#">Notes</a></div>
-            </div>
-          </div>
-        </article>
+          <!-- Card 5: Packing Slip Generator -->
+          <project-card
+            title="Packing Slip Generator"
+            image="https://picsum.photos/800/450?random=205"
+            image-alt="Packing slip generation interface with batch PDF export functionality"
+            description="Enterprise-grade packing slip generation system with 99.2% endpoint success rate. Features batch PDF export, validation, and Docker containerization."
+            tags="Spring Boot, MySQL, Docker"
+            link="#"
+            link-text="Case Study →"
+          ></project-card>
 
-        <!-- Card 6 -->
-        <article class="proj" data-kind="web">
-          <figure class="thumb" aria-hidden="true">
-            <picture>
-              <source
-                type="image/webp"
-                srcset="
-                  https://picsum.photos/800/450.webp?random=206   800w,
-                  https://picsum.photos/1200/675.webp?random=206 1200w
-                "
-              />
-              <img
-                src="https://picsum.photos/800/450?random=206"
-                alt="Project thumbnail placeholder"
-                width="800"
-                height="450"
-                loading="lazy"
-                sizes="(max-width: 620px) 100vw, (max-width: 980px) 50vw, 33vw"
-              />
-            </picture>
-          </figure>
-          <div class="body">
-            <div class="title">Project Placeholder Title</div>
-            <div class="meta">
-              <span class="badge">ES6</span><span class="badge">Modules</span>
-            </div>
-            <div class="impact muted">“Text or decription Placeholder”</div>
-            <div class="row">
-              <button class="quick" type="button" aria-disabled="true">
-                Quick-view
-              </button>
-              <div class="cta"><a class="btn" href="#">Repo</a></div>
-            </div>
-          </div>
-        </article>
+          <!-- Card 6: Portfolio Site -->
+          <project-card
+            title="Personal Portfolio — CSE 134B"
+            image="https://picsum.photos/800/450?random=206"
+            image-alt="Portfolio website showcasing modern CSS features and responsive design"
+            description="This portfolio site! Built with vanilla HTML, CSS, and JavaScript showcasing modern features like CSS nesting, @scope, View Transitions API, and custom elements."
+            tags="HTML5, CSS3, JavaScript, Web Components"
+            link="https://github.com/NicholasTc/cse134b_hw5_NicholasChan"
+            link-text="View Source →"
+          ></project-card>
+        </div>
       </section>
 
       <!--  Footer -->
       <footer>© 2025 • Nicholas Theodorus Chan</footer>
     </main>
+    <script type="module" src="/assets/scripts/project-card.js"></script>
     <script type="module" src="/assets/scripts/theme-transitions.js"></script>
   </body>
 </html>
