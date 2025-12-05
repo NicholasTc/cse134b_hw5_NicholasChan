@@ -156,95 +156,59 @@
         </p>
       </section>
 
-      <!-- ================== Filters / Layout controls (presentational only) ================== -->
-      <section class="projects-head" aria-label="Filters and layout">
+      <!-- ================== Data Loading Controls ================== -->
+      <section class="projects-head" aria-label="Project data controls">
         <div class="controls">
-          <div class="filters" role="toolbar" aria-label="Project filters">
-            <button class="filter" aria-pressed="true">All</button>
-            <button class="filter" aria-pressed="false">Web</button>
-            <button class="filter" aria-pressed="false">Backend</button>
-            <button class="filter" aria-pressed="false">ML</button>
-            <button class="filter" aria-pressed="false">WordPress</button>
+          <!-- Load Data Buttons (Part 2: Data Loading) -->
+          <div
+            class="data-loaders"
+            role="toolbar"
+            aria-label="Load project data"
+          >
+            <button
+              type="button"
+              id="loadLocalBtn"
+              class="btn load-btn"
+              aria-describedby="loadStatus"
+            >
+              Load Local
+            </button>
+            <button
+              type="button"
+              id="loadRemoteBtn"
+              class="btn load-btn load-btn--primary"
+              aria-describedby="loadStatus"
+            >
+              Load Remote
+            </button>
           </div>
 
-          <div class="layout" role="toolbar" aria-label="Layout">
-            <!-- Default to no highlighted state -->
-            <button aria-pressed="false" title="Grid" type="button">▦</button>
-            <button aria-pressed="false" title="List" type="button">≣</button>
-          </div>
+          <!-- Status message for loading feedback -->
+          <p
+            id="loadStatus"
+            class="load-status"
+            role="status"
+            aria-live="polite"
+            hidden
+          ></p>
         </div>
       </section>
 
-      <!-- ================== Projects Grid (using <project-card> custom elements) ================== -->
+      <!-- ================== Projects Grid (populated via JavaScript) ================== -->
       <section aria-labelledby="gallery-title">
         <h2 id="gallery-title" class="sr-only">Project gallery</h2>
 
+        <!-- 
+          Part 2: Data Loading
+          This container starts empty. Click "Load Local" or "Load Remote" 
+          to populate it with <project-card> elements via JavaScript.
+        -->
         <div class="project-cards-grid" id="projectCardsContainer">
-          <!-- Card 1: GymApp -->
-          <project-card
-            title="GymApp — Full-Stack Fitness Tracker"
-            image="https://picsum.photos/800/450?random=201"
-            image-alt="GymApp dashboard showing workout tracking interface with progress charts"
-            description="A comprehensive fitness tracking application that reduced query times by 42% through indexed joins and intelligent caching. Features include workout logging, progress predictions, and personalized recommendations."
-            tags="Flask, React, PostgreSQL, REST API"
-            link="https://github.com/NicholasTc"
-            link-text="View Repository →"
-          ></project-card>
-
-          <!-- Card 2: Pollen Atlas -->
-          <project-card
-            title="Pollen Atlas — Air Quality Dashboard"
-            image="https://picsum.photos/800/450?random=202"
-            image-alt="Pollen Atlas WordPress widget displaying real-time air quality and pollen data"
-            description="WordPress widget integrating Google Pollen and Air Quality APIs with serverless caching. Achieved +23% user retention on city pages through accessible, responsive charts."
-            tags="WordPress, JavaScript, APIs, Charts"
-            link="#"
-            link-text="View Live Demo →"
-          ></project-card>
-
-          <!-- Card 3: ResumeAI Tool -->
-          <project-card
-            title="ResumeAI — Intelligent Resume Parser"
-            image="https://picsum.photos/800/450?random=203"
-            image-alt="ResumeAI interface showing document upload and parsed resume data"
-            description="An AI-powered resume parsing tool achieving ~85% accuracy across various document formats. Leverages OpenAI for natural language processing and smart field extraction."
-            tags="Python, OpenAI, PDF Processing"
-            link="https://github.com/NicholasTc"
-            link-text="View Repository →"
-          ></project-card>
-
-          <!-- Card 4: Weather/AQI Widget -->
-          <project-card
-            title="Weather & AQI Widget"
-            image="https://picsum.photos/800/450?random=204"
-            image-alt="Accessible weather widget with ARIA-labeled charts and keyboard navigation"
-            description="A fully accessible weather and air quality widget featuring ARIA-labeled charts and keyboard-navigable legends. Built with a focus on WCAG 2.1 AA compliance."
-            tags="JavaScript, Accessibility, ARIA"
-            link="#"
-            link-text="Case Study →"
-          ></project-card>
-
-          <!-- Card 5: Packing Slip Generator -->
-          <project-card
-            title="Packing Slip Generator"
-            image="https://picsum.photos/800/450?random=205"
-            image-alt="Packing slip generation interface with batch PDF export functionality"
-            description="Enterprise-grade packing slip generation system with 99.2% endpoint success rate. Features batch PDF export, validation, and Docker containerization."
-            tags="Spring Boot, MySQL, Docker"
-            link="#"
-            link-text="Case Study →"
-          ></project-card>
-
-          <!-- Card 6: Portfolio Site -->
-          <project-card
-            title="Personal Portfolio — CSE 134B"
-            image="https://picsum.photos/800/450?random=206"
-            image-alt="Portfolio website showcasing modern CSS features and responsive design"
-            description="This portfolio site! Built with vanilla HTML, CSS, and JavaScript showcasing modern features like CSS nesting, @scope, View Transitions API, and custom elements."
-            tags="HTML5, CSS3, JavaScript, Web Components"
-            link="https://github.com/NicholasTc/cse134b_hw5_NicholasChan"
-            link-text="View Source →"
-          ></project-card>
+          <!-- Project cards will be dynamically inserted here -->
+          <p class="empty-state">
+            Click <strong>"Load Local"</strong> or
+            <strong>"Load Remote"</strong> above to load projects.
+          </p>
         </div>
       </section>
 
@@ -252,6 +216,7 @@
       <footer>© 2025 • Nicholas Theodorus Chan</footer>
     </main>
     <script type="module" src="/assets/scripts/project-card.js"></script>
+    <script type="module" src="/assets/scripts/project-loader.js"></script>
     <script type="module" src="/assets/scripts/theme-transitions.js"></script>
   </body>
 </html>
